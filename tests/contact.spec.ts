@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../src/pages/home.page';
 import { ContactPage } from '../src/pages/contact.page';
 
-test.only('Kontakt – formularz widoczny / walidacje', async ({ page }) => {
+test('Kontakt – formularz widoczny / walidacje', async ({ page }) => {
   const home = new HomePage(page);
   await home.goto();
   await page.getByRole('link', { name: /kontakt|contact/i }).first().click();
