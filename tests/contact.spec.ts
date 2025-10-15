@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../src/pages/home.page';
+import { ContactPage } from '../src/pages/contact.page';
 
-test('Kontakt – formularz widoczny / walidacje', async ({ page }) => {
+test.only('Kontakt – formularz widoczny / walidacje', async ({ page }) => {
   const home = new HomePage(page);
   await home.goto();
   await page.getByRole('link', { name: /kontakt|contact/i }).first().click();
@@ -12,4 +13,9 @@ test('Kontakt – formularz widoczny / walidacje', async ({ page }) => {
   await expect(nameInput.first()).toBeVisible();
   await expect(emailInput.first()).toBeVisible();
   await expect(messageInput.first()).toBeVisible();
+
+  const contact = new ContactPage(page);
+  await contact.selectPrivacyPolicy();
+  //await page.pause();
+
 });

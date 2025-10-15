@@ -15,7 +15,7 @@ test.describe('Nawigacja – kluczowe sekcje', () => {
     await expect(page).toHaveURL(/services|uslugi|oferta/i);
   });
 
-  test('najechanie na "Testowanie i kontrola jakości" pokazuje submenu', async () => {
+  test('najechanie na "Testowanie i kontrola jakości" pokazuje submenu', async ({page}) => {
 
     // łapiemy li zawierający odpowiedni link
     await expect(home.subNavTestingQA).toHaveCount(1); // tylko jeden element
@@ -35,4 +35,4 @@ test.describe('Nawigacja – kluczowe sekcje', () => {
     // opcjonalnie: kliknij w link
     await overviewLink.click();
   })
-});
+}); 
